@@ -19,7 +19,6 @@ function validateElements(node: Element): void {
   (node.childNodes as Element[]).forEach((e) => {
     validateImageAttributes(e);
     validateElements(e);
-    
   });
 }
 
