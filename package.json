@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/trebland/ADA-Linter#readme",
   "dependencies": {
+    "commander": "^11.0.0",
+    "glob": "^10.3.3",
     "parse5": "^7.1.2"
   },
   "devDependencies": {
