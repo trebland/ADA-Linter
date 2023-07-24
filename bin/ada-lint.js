@@ -2,6 +2,7 @@
 import { Command } from 'commander';
 import { runValidation } from '../dist/index.js';
 import { glob } from 'glob';
+import pkg from '../package.json' assert { type: "json" };
 
 const program = new Command();  
 const options = program.opts();
@@ -9,7 +10,7 @@ const options = program.opts();
 program
   .name('ada-lint')
   .description('CLI to run ada-lint')
-  .version('0.0.1');
+  .version(pkg.version);
 
 program
   .argument('<input-file>', 'path to the .html file(s) to validate')
