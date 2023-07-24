@@ -1,6 +1,6 @@
 {
   "name": "ada-linter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "ADA Compliance Linter",
   "type": "module",
   "engines": {
