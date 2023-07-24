@@ -10,6 +10,6 @@ export function validateImageAttributes(node: Element) {
 
   if (!node.attrs.find((e) => e.name === IMAGE_ATTRIBUTES.alt) ?? true) {
     console.log("Violation at line: ", node.sourceCodeLocation?.startLine);
-    console.log("Reasons: Images require an alt attribute");
+    console.log("Reason: Images require an alt attribute");
   }
 }
