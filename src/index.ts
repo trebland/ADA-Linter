@@ -1,9 +1,25 @@
 import { parse } from "parse5";
 import { Document, Element } from "parse5/dist/tree-adapters/default";
-import { validateImageAttributes } from "../src/validators/image";
-import * as fs from "fs";
+import { validateImageAttributes } from "./validators/image";
+import { readFileSync, accessSync, constants } from "fs";
 
-function parseFileContents(fileContents: string) {
+export function runValidation(files: string[]) {
+  console.log(files);
+
+  files.forEach((file) => {
+    try {
+      accessSync(file, constants.F_OK);
+    } catch (err) {
+      console.log(err);
+    }
+
+    const fileContents: string = readFileSync(file, "utf8");
+
+    validateFileContents(fileContents);
+  });
+}
+
+function validateFileContents(fileContents: string) {
   const rootNode: Document = parse(fileContents, {
     sourceCodeLocationInfo: true,
   });
@@ -20,9 +36,4 @@ function validateElements(node: Element): void {
     validateImageAttributes(e);
     validateElements(e);
   });
-}
-
-for (const file of process.argv.slice(2)) {
-  const fileContents: string = fs.readFileSync(file, "utf8");
-  parseFileContents(fileContents);
 }
