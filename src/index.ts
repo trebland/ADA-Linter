@@ -33,5 +33,5 @@ function validateFileContents(fileContents: string): void {
 function validateElements(node: Element): void {
   validateImageAttributes(node);
 
-  (node.childNodes as Element[]).forEach((e) => validateElements(e));
+  (node.childNodes as Element[])?.forEach((e) => validateElements(e));
 }
