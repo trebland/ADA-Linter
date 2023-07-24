@@ -31,12 +31,7 @@ function validateFileContents(fileContents: string) {
 }
 
 function validateElements(node: Element): void {
-  const childCount: number = node?.childNodes?.length ?? 0;
+  validateImageAttributes(node);
 
-  if (childCount == 0) return;
-
-  (node.childNodes as Element[]).forEach((e) => {
-    validateImageAttributes(e);
-    validateElements(e);
-  });
+  (node.childNodes as Element[]).forEach((e) => validateElements(e));
 }
