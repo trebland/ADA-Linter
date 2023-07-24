@@ -1,5 +1,4 @@
 import { parse } from "parse5";
-// import { Document, Element } from "parse5/dist/tree-adapters/default";
 import { validateImageAttributes } from "./validators/image.js";
 import { readFileSync, accessSync, constants } from "fs";
 
