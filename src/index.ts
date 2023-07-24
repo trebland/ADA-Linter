@@ -1,6 +1,6 @@
 import { parse } from "parse5";
-import { Document, Element } from "parse5/dist/tree-adapters/default";
-import { validateImageAttributes } from "./validators/image";
+// import { Document, Element } from "parse5/dist/tree-adapters/default";
+import { validateImageAttributes } from "./validators/image.js";
 import { readFileSync, accessSync, constants } from "fs";
 
 export function runValidation(files: string[]) {
@@ -20,19 +20,19 @@ export function runValidation(files: string[]) {
 }
 
 function validateFileContents(fileContents: string) {
-  const rootNode: Document = parse(fileContents, {
+  const rootNode = parse(fileContents, {
     sourceCodeLocationInfo: true,
   });
 
-  validateElements(rootNode.childNodes[1] as Element);
+  validateElements(rootNode.childNodes[1]);
 }
 
-function validateElements(node: Element): void {
+function validateElements(node: any): void {
   const childCount: number = node?.childNodes?.length ?? 0;
 
   if (childCount == 0) return;
 
-  (node.childNodes as Element[]).forEach((e) => {
+  node.childNodes.forEach((e: any) => {
     validateImageAttributes(e);
     validateElements(e);
   });

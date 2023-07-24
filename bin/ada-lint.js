@@ -1,8 +1,7 @@
 #! /usr/bin/env node
-const { Command } = require('commander');
-const { runValidation } = require('../dist/index.js');
-const { glob } = require('glob');
-const package = require('../package.json');
+import { Command } from 'commander';
+import { runValidation } from '../dist/index.js';
+import { glob } from 'glob';
 
 const program = new Command();  
 const options = program.opts();
@@ -10,7 +9,7 @@ const options = program.opts();
 program
   .name('ada-lint')
   .description('CLI to run ada-lint')
-  .version(package.version);
+  .version('0.0.1');
 
 program
   .argument('<input-file>', 'path to the .html file(s) to validate')
