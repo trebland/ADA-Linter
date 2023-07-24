@@ -22,7 +22,7 @@ export function runValidation(files: string[]) {
   });
 }
 
-function validateFileContents(fileContents: string) {
+function validateFileContents(fileContents: string): void {
   const rootNode: Document = parse(fileContents, {
     sourceCodeLocationInfo: true,
   });
