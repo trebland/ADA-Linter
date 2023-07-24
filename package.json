@@ -2,7 +2,11 @@
   "name": "ada-linter",
   "version": "0.0.3",
   "description": "ADA Compliance Linter",
-  "main": "index.ts",
+  "type": "module",
+  "engines": {
+    "node": ">=16"
+  },
+  "exports": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
